@@ -1,0 +1,12 @@
+(define-module (riscv instruction rv_zicsr)
+  #:use-module (riscv build-base)
+  #:use-module (riscv range-base)
+  #:export (csrrw csrrs csrrc csrrwi csrrsi csrrci)
+)
+
+(define csrrw (make-instruction rd rs1 csr (range-fixed 14 12 1) (range-fixed 6 2 28) (range-fixed 1 0 3)))
+(define csrrs (make-instruction rd rs1 csr (range-fixed 14 12 2) (range-fixed 6 2 28) (range-fixed 1 0 3)))
+(define csrrc (make-instruction rd rs1 csr (range-fixed 14 12 3) (range-fixed 6 2 28) (range-fixed 1 0 3)))
+(define csrrwi (make-instruction rd csr zimm5 (range-fixed 14 12 5) (range-fixed 6 2 28) (range-fixed 1 0 3)))
+(define csrrsi (make-instruction rd csr zimm5 (range-fixed 14 12 6) (range-fixed 6 2 28) (range-fixed 1 0 3)))
+(define csrrci (make-instruction rd csr zimm5 (range-fixed 14 12 7) (range-fixed 6 2 28) (range-fixed 1 0 3)))

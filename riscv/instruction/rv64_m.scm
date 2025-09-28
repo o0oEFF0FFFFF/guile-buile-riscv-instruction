@@ -1,0 +1,11 @@
+(define-module (riscv instruction rv64_m)
+  #:use-module (riscv build-base)
+  #:use-module (riscv range-base)
+  #:export (mulw divw divuw remw remuw)
+)
+
+(define mulw (make-instruction rd rs1 rs2 (range-fixed 31 25 1) (range-fixed 14 12 0) (range-fixed 6 2 14) (range-fixed 1 0 3)))
+(define divw (make-instruction rd rs1 rs2 (range-fixed 31 25 1) (range-fixed 14 12 4) (range-fixed 6 2 14) (range-fixed 1 0 3)))
+(define divuw (make-instruction rd rs1 rs2 (range-fixed 31 25 1) (range-fixed 14 12 5) (range-fixed 6 2 14) (range-fixed 1 0 3)))
+(define remw (make-instruction rd rs1 rs2 (range-fixed 31 25 1) (range-fixed 14 12 6) (range-fixed 6 2 14) (range-fixed 1 0 3)))
+(define remuw (make-instruction rd rs1 rs2 (range-fixed 31 25 1) (range-fixed 14 12 7) (range-fixed 6 2 14) (range-fixed 1 0 3)))

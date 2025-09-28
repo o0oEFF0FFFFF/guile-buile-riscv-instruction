@@ -1,0 +1,12 @@
+(define-module (riscv instruction rv64_d)
+  #:use-module (riscv build-base)
+  #:use-module (riscv range-base)
+  #:export (fcvt.l.d fcvt.lu.d fmv.x.d fcvt.d.l fcvt.d.lu fmv.d.x)
+)
+
+(define fcvt.l.d (make-instruction rd rs1 rm (range-fixed 24 20 2) (range-fixed 31 27 24) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
+(define fcvt.lu.d (make-instruction rd rs1 rm (range-fixed 24 20 3) (range-fixed 31 27 24) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
+(define fmv.x.d (make-instruction rd rs1 (range-fixed 24 20 0) (range-fixed 31 27 28) (range-fixed 14 12 0) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
+(define fcvt.d.l (make-instruction rd rs1 rm (range-fixed 24 20 2) (range-fixed 31 27 26) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
+(define fcvt.d.lu (make-instruction rd rs1 rm (range-fixed 24 20 3) (range-fixed 31 27 26) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
+(define fmv.d.x (make-instruction rd rs1 (range-fixed 24 20 0) (range-fixed 31 27 30) (range-fixed 14 12 0) (range-fixed 26 25 1) (range-fixed 6 2 20) (range-fixed 1 0 3)))
