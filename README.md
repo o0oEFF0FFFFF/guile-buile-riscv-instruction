@@ -17,3 +17,16 @@ git clone https://github.com/riscv/riscv-opcodes.git
 然后运行./first_build.scm
 
 就能从新生成模块
+
+导入assemble-file后就可以在文件中使用汇编指令并输出
+就像这样：
+(add-to-load-path (getcwd))
+(use-modules (riscv instruction rv_i)
+ (riscv variable)
+ (riscv tool)
+ (assemble-file)
+)
+
+(assemble-file "a.s" "a.bin")
+
+a.bin就是生成的二进制文件。
